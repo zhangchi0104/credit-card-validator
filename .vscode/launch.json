@@ -5,25 +5,15 @@
     "version": "0.2.0",
     "configurations": [
         {
-<<<<<<< HEAD
-            "name": "(lldb) Launch",
-            "type": "cppdbg",
-            "request": "launch",
-            "program": "${workspaceFolder}/build_macos/testTrie",
-=======
             "name": "(gdb) Launch",
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/testTrie",
->>>>>>> get-brand
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
             "environment": [],
             "externalConsole": true,
-<<<<<<< HEAD
-            "MIMode": "lldb"
-=======
             "MIMode": "gdb",
             "setupCommands": [
                 {
@@ -32,7 +22,6 @@
                     "ignoreFailures": true
                 }
             ]
->>>>>>> get-brand
         }
     ]
 }

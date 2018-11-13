@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "../../include/checkSum.h"
+#include "../../include/trie.h"
 #include <ctype.h>
 #include <string.h>
 static bool isNum(char);
@@ -34,7 +35,7 @@ char validateNumber(char *number) {
     return (sum % 10 == 0);
 }
 
-void validateFromFile(char *fileName) {
+void validateFromFile(char *fileName, Trie t) {
     FILE* numberList = fopen(fileName, "r");
     if (numberList == NULL) {abort();}
     char *currLine = calloc(1000, sizeof(char));
@@ -42,17 +43,19 @@ void validateFromFile(char *fileName) {
     int nScaned = 0; 
     while(!feof(numberList)) {
         fgets(currLine, 1000, numberList);
+        char *brand = getBrand(t, currLine);
+        printf("Card Brand: %s\n", brand);
         int res = validateNumber(currLine);
         switch(res) {
             case '1':
-                printf("%s is valid!\n", currLine);
+                printf("valid!\n");
                 nValids++;
                 break;
             case '2':
-                printf("%s contains invalid character\n", currLine);
+                printf("contains invalid character\n");
                 break;
             case '0':
-                printf("%s is invalid!", currLine);
+                printf("invalid!");
                 break;
             default:
                 break;

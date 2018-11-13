@@ -4,7 +4,6 @@ project(creditCardValidator)
 add_subdirectory(src)
 set_target_properties(
     creditCardValidator
-    testTrie
     PROPERTIES
     RUNTIME_OUTPUT_DIRECTORY ..
 )

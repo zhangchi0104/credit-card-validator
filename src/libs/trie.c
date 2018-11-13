@@ -20,6 +20,8 @@ static trieNode *newNode(char *brandName);
 static void freeTrieNode(trieNode *t);
 static int chtoi(char);
 static void printTrieNode(trieNode *t, int currDigit);
+
+
 Trie newTrie() {
     Trie n = malloc(sizeof(struct trieRep));
     assert(n != NULL);
@@ -51,10 +53,13 @@ char *getBrand(Trie t, char*number) {
     for (i = 0; i < len;) {
 
         // no such digit 
+        // stop
         if (curr == NULL) {
             break;
         } else {
-            brand = curr->brandName;
+            // brand points to the brandName
+            if (curr->brandName != NULL)
+                brand = curr->brandName;
             i++;
             int nD = chtoi(number[i]);
             if(nD == -1) {
